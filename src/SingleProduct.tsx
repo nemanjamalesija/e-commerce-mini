@@ -10,6 +10,7 @@ type singleProductProps = {
 
 const SingleProduct = (props: singleProductProps) => {
   const { name, description, price, id } = props;
+  const { addToCartHandler } = useGlobalContext();
   const [amount, setAmount] = useState(1);
 
   return (
@@ -32,7 +33,14 @@ const SingleProduct = (props: singleProductProps) => {
           />
         </div>
         <div className="div-btn">
-          <button className="btn btn-add">+Add</button>
+          <button
+            className="btn btn-add"
+            onClick={() =>
+              addToCartHandler({ name, description, price, id, amount })
+            }
+          >
+            +Add
+          </button>
         </div>
       </div>
     </article>

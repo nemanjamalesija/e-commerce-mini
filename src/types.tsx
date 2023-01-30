@@ -3,6 +3,11 @@ export type product = {
   name: string;
   description: string;
   price: number;
+  amount?: number;
+};
+
+export type productWithAmount = product & {
+  amount: number;
 };
 
 export type stateType = {
@@ -12,4 +17,14 @@ export type stateType = {
   amount: number;
   showCart: boolean;
   totalItems: number;
+};
+
+export type ACTIONS = {
+  readonly type:
+    | 'ADD_PRODUCT_TO_CART'
+    | 'FIND_PRODUCT_SEARCH'
+    | 'UPDATE_PRODUCTS_NUMBER'
+    | 'ADD_ONE_PRODUCT';
+
+  readonly payload: productWithAmount;
 };
