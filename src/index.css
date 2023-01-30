@@ -24,6 +24,12 @@ code {
     monospace;
 }
 
+.container {
+  width: 120rem;
+  margin: 0 auto;
+  margin-top: 9.6rem;
+}
+
 .react-meals-header {
   display: flex;
   justify-content: space-between;
@@ -62,4 +68,85 @@ code {
   color: #fff;
   padding: 0.5rem 1rem;
   border-radius: 50%;
+}
+
+/* single product */
+
+article {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 0.8rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.heading-fifth {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.item-description {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 0.75rem;
+}
+
+.item-price {
+  font-size: 1.4rem;
+}
+
+.item-input-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+label {
+  font-size: 1.6rem;
+  color: #444;
+  font-weight: 500;
+}
+
+.div-btn,
+.update-amount-div {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+}
+
+.btn-add {
+  background-color: green;
+  margin-top: 1rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+}
+
+.amount {
+  font-size: 1.6rem;
+  align-self: center;
+  margin-top: 1rem;
+}
+
+.btn-go-to-cart {
+  background-color: green;
+  margin: 0 auto;
+  display: block;
+  padding: 1.2rem 2.4rem;
+  margin-top: 1rem;
+  color: #fff;
 }
