@@ -3,20 +3,11 @@ import './index.css';
 import { useReducer } from 'react';
 import reducer from './reducer';
 import { DUMMY_MEALS } from './data';
-import { stateType, productWithAmount } from './types';
+import { contexStateAndMethods, productWithAmount } from './types';
 
 //////////////context
-type context = stateType & {
-  addToCartHandler({
-    id,
-    name,
-    price,
-    description,
-    amount,
-  }: productWithAmount): void;
-};
 
-const initialState: context = {
+const initialState: contexStateAndMethods = {
   cart: [],
   products: DUMMY_MEALS,
   filteredProducts: DUMMY_MEALS,
@@ -29,6 +20,8 @@ const initialState: context = {
     description,
     amount,
   }: productWithAmount): void {},
+  showCartHandler(): void {},
+  hideCartHandler(): void {},
 };
 
 const AppContext = React.createContext(initialState);
@@ -36,25 +29,36 @@ const AppContext = React.createContext(initialState);
 const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const addToCartHandler = ({
+  const addToCartHandler: contexStateAndMethods['addToCartHandler'] = ({
     id,
     name,
     price,
     description,
     amount,
-  }: productWithAmount) => {
+  }) => {
     dispatch({
       type: 'ADD_PRODUCT_TO_CART',
       payload: { id, name, price, description, amount },
     });
   };
-  console.log(state.cart);
+
+  const showCartHandler: contexStateAndMethods['showCartHandler'] = () => {
+    dispatch({ type: 'SHOW_CART' });
+  };
+
+  const hideCartHandler: contexStateAndMethods['hideCartHandler'] = () => {
+    dispatch({ type: 'HIDE_CART' });
+  };
+
+  console.log(state);
 
   return (
     <AppContext.Provider
       value={{
         ...state,
         addToCartHandler,
+        showCartHandler,
+        hideCartHandler,
       }}
     >
       {children}
