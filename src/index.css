@@ -150,3 +150,26 @@ label {
   margin-top: 1rem;
   color: #fff;
 }
+
+.search-label {
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+  color: #333;
+}
+
+label,
+input {
+  margin: 0 auto;
+  width: 30%;
+  display: block;
+}
+
+label {
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+input {
+  font-size: 1.6rem;
+  padding: 0.5rem;
+}

@@ -13,7 +13,10 @@ function App() {
       <section className="section section-meals">
         <Header />
         {!showCart && (
-          <input type="text" name="name" onChange={searchForItemsHandler} />
+          <div>
+            <label className="search-label">Search product</label>
+            <input type="text" name="name" onChange={searchForItemsHandler} />
+          </div>
         )}
         {showCart && <Cart />}
         {!showCart && (
