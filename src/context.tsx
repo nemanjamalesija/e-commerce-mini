@@ -2,11 +2,10 @@ import React, { useContext } from 'react';
 import './index.css';
 import { useReducer } from 'react';
 import reducer from './reducer';
-import { DUMMY_MEALS } from './data';
-import { contexStateAndMethods, productWithAmount } from './types';
+import { DUMMY_MEALS } from './constants/data';
+import { contexStateAndMethods, productWithAmount } from './constants/types';
 
 //////////////context
-
 const initialState: contexStateAndMethods = {
   cart: [],
   products: DUMMY_MEALS,
@@ -22,6 +21,9 @@ const initialState: contexStateAndMethods = {
   }: productWithAmount): void {},
   showCartHandler(): void {},
   hideCartHandler(): void {},
+  addOneProductHandler(id: string): void {},
+  removeOneProductHandler(id: string): void {},
+  searchForItemsHandler(e: React.ChangeEvent<HTMLInputElement>): void {},
 };
 
 const AppContext = React.createContext(initialState);
@@ -50,6 +52,22 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
     dispatch({ type: 'HIDE_CART' });
   };
 
+  const addOneProductHandler: contexStateAndMethods['addOneProductHandler'] = (
+    id: string
+  ) => {
+    dispatch({ type: 'ADD_ONE_PRODUCT', payload: id });
+  };
+
+  const removeOneProductHandler: contexStateAndMethods['removeOneProductHandler'] =
+    (id: string) => {
+      dispatch({ type: 'REMOVE_ONE_PRODUCT', payload: id });
+    };
+
+  const searchForItemsHandler: contexStateAndMethods['searchForItemsHandler'] =
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      dispatch({ type: 'SEARCH_FOR_PRODUCT', payload: e.target.value });
+    };
+
   console.log(state);
 
   return (
@@ -59,6 +77,9 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
         addToCartHandler,
         showCartHandler,
         hideCartHandler,
+        addOneProductHandler,
+        removeOneProductHandler,
+        searchForItemsHandler,
       }}
     >
       {children}

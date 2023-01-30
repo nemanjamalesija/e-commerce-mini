@@ -1,3 +1,5 @@
+import React from 'react';
+
 export type product = {
   id: string;
   name: string;
@@ -29,6 +31,9 @@ export type contexStateAndMethods = stateType & {
   }: productWithAmount): void;
   showCartHandler(): void;
   hideCartHandler(): void;
+  addOneProductHandler(id: string): void;
+  removeOneProductHandler(id: string): void;
+  searchForItemsHandler(e: React.ChangeEvent<HTMLInputElement>): void;
 };
 
 export type ACTIONS = {
@@ -37,6 +42,7 @@ export type ACTIONS = {
     | 'FIND_PRODUCT_SEARCH'
     | 'UPDATE_PRODUCTS_NUMBER'
     | 'ADD_ONE_PRODUCT'
+    | 'REMOVE_ONE_PRODUCT'
     | 'SEARCH_FOR_PRODUCT'
     | 'SHOW_CART'
     | 'HIDE_CART';

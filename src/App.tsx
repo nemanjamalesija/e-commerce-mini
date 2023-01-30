@@ -1,17 +1,20 @@
 import React from 'react';
-import SingleProduct from './SingleProduct';
-import Header from './Header';
-import Cart from './Cart';
+import SingleProduct from './components/SingleProduct';
+import Header from './components/Header';
+import Cart from './components/Cart';
 import { useGlobalContext } from './context';
 
 function App() {
-  const { filteredProducts, showCart, showCartHandler } = useGlobalContext();
+  const { filteredProducts, showCart, showCartHandler, searchForItemsHandler } =
+    useGlobalContext();
 
   return (
     <div>
       <section className="section section-meals">
         <Header />
-        {!showCart && <input type="text" name="name" />}
+        {!showCart && (
+          <input type="text" name="name" onChange={searchForItemsHandler} />
+        )}
         {showCart && <Cart />}
         {!showCart && (
           <div className="container container-meals">
