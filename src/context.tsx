@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './index.css';
 import { useReducer } from 'react';
 import reducer from './reducer';
@@ -68,7 +68,9 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
       dispatch({ type: 'SEARCH_FOR_PRODUCT', payload: e.target.value });
     };
 
-  console.log(state);
+  useEffect(() => {
+    dispatch({ type: 'UPDATE_PRODUCTS_NUMBER' });
+  }, [state.cart]);
 
   return (
     <AppContext.Provider

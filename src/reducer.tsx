@@ -75,6 +75,16 @@ const reducer = (state: stateType, action: ACTIONS) => {
     return { ...state, filteredProducts: productsTemp };
   }
 
+  if (type === 'UPDATE_PRODUCTS_NUMBER') {
+    const newAmount = state.cart.reduce((acc, product) => {
+      if (product.amount) {
+        return product.amount + acc;
+      } else return acc;
+    }, 0) as number;
+
+    return { ...state, totalItems: newAmount };
+  }
+
   if (type === 'SHOW_CART' && !payload) {
     return { ...state, showCart: true };
   }
