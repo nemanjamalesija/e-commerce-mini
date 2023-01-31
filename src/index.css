@@ -40,8 +40,9 @@ nav {
   align-items: center;
 }
 
-h1 {
+.main-heading {
   font-size: 3.2rem;
+  cursor: pointer;
 }
 
 .heading-empty-cart {
@@ -60,6 +61,7 @@ h1 {
 
 .amount-container {
   position: relative;
+  cursor: pointer;
 }
 
 .amount-container-value {
@@ -128,7 +130,7 @@ h1 {
 
 .cart-container {
   border: 1px solid #ddd;
-  box-shadow: 1px 2px 3px 4px rgba(20, 20, 20, 0.1);
+  box-shadow: 1px 2px 3px 4px rgba(20, 20, 20, 0.04);
   width: 100%;
   border-radius: 9px;
   margin-bottom: 2rem;
@@ -150,7 +152,7 @@ h1 {
 /* single product */
 
 .container-meals {
-  box-shadow: 1px 2px 3px 4px rgba(20, 20, 20, 0.1);
+  box-shadow: 1px 2px 3px 4px rgba(20, 20, 20, 0.04);
 }
 
 article {
@@ -304,10 +306,10 @@ input:focus {
 }
 
 .section-total-price div {
-  border: 1px solid #999;
+  border: 1px solid #ddd;
   padding: 1.2rem 2.4rem;
   border-radius: 8px;
-  box-shadow: 1px 2px 3px 4px rgba(20, 20, 20, 0.1);
+  box-shadow: 1px 2px 3px 4px rgba(20, 20, 20, 0.04);
 }
 
 .section-total-price h3 {

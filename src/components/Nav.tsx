@@ -2,13 +2,15 @@ import React from 'react';
 import { useGlobalContext } from '../context';
 
 const Nav = () => {
-  const { totalItems } = useGlobalContext();
+  const { totalItems, showCartHandler, hideCartHandler } = useGlobalContext();
 
   return (
     <nav>
       <div className="nav-div">
-        <h1>Mini Commerce</h1>
-        <div className="amount-container">
+        <h1 className="main-heading" onClick={hideCartHandler}>
+          Mini Commerce
+        </h1>
+        <div className="amount-container" onClick={showCartHandler}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
