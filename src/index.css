@@ -33,7 +33,7 @@ section {
 /* nav */
 
 nav {
-  height: 90px;
+  height: 8rem;
   background-color: #212529;
   color: #fff;
   display: flex;
@@ -53,7 +53,7 @@ nav {
 }
 
 .nav-div {
-  width: 80rem;
+  width: 90rem;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -94,7 +94,7 @@ nav {
 .container {
   width: 120rem;
   margin: 0 auto;
-  margin-top: 9.6rem;
+  margin-top: 6rem;
   border: 1px solid #ddd;
   border-radius: 9px;
   padding: 1.2rem 2.4rem;
@@ -167,19 +167,19 @@ article:last-child {
 }
 
 .heading-fifth {
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 0.5rem;
   color: #333;
 }
 
 .item-description {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: #444;
   margin-bottom: 0.75rem;
 }
 
 .item-price {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #444;
 }
 
@@ -199,7 +199,7 @@ input {
 
 label {
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: #444;
   font-weight: 500;
 }
@@ -267,7 +267,7 @@ input:focus {
 }
 
 .amount {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-top: 1rem;
   color: #444;
 }
@@ -293,7 +293,7 @@ input:focus {
   margin-bottom: 1rem;
   color: #333;
   font-weight: 600;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
 }
 
 /* total price */
@@ -313,7 +313,7 @@ input:focus {
 }
 
 .section-total-price h3 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 0.5rem;
   color: #333;
 }
