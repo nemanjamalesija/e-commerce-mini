@@ -27,11 +27,13 @@ const reducer = (state: stateType, action: ACTIONS) => {
       else {
         const newCard = state.cart.map((product) => {
           if (product.id === id + 'exists') {
+            // update amount for the existing product
             let newAmount: number;
             if (currentProduct.amount) {
               newAmount = amount + currentProduct.amount;
               return { ...product, amount: newAmount };
-            }
+              // 2 if statements => 2 else
+            } else return product;
           } else return product;
         }) as stateType['cart'];
 
@@ -83,6 +85,23 @@ const reducer = (state: stateType, action: ACTIONS) => {
     }, 0) as number;
 
     return { ...state, totalItems: newAmount };
+  }
+
+  if (type === 'UPDATE_TOTAL_PRICE') {
+    const newTotalPrice = state.cart
+      .map((product) => {
+        if (product.amount) return product.price * product.amount;
+        else return product.price;
+      })
+      .reduce((acc, price) => {
+        console.log(acc, price);
+        if (acc !== undefined && price) {
+          console.log('aaa');
+          return acc + price;
+        } else return acc;
+      }, 0) as number;
+
+    return { ...state, totalPrice: newTotalPrice };
   }
 
   if (type === 'SHOW_CART' && !payload) {

@@ -1,38 +1,23 @@
-import React from 'react';
-import SingleProduct from './components/SingleProduct';
-import Header from './components/Header';
+import Nav from './components/Nav';
 import Cart from './components/Cart';
+import SearchProducts from './components/SearchProducts';
 import { useGlobalContext } from './context';
+import TotalPrice from './components/TotalPrice';
+import ParentSingleProduct from './components/ParentSingleProduct';
+import GoToCart from './components/GoToCart';
 
 function App() {
-  const { filteredProducts, showCart, showCartHandler, searchForItemsHandler } =
-    useGlobalContext();
+  const { showCart } = useGlobalContext();
 
   return (
-    <div>
-      <section className="section section-meals">
-        <Header />
-        {!showCart && (
-          <div>
-            <label className="search-label">Search product</label>
-            <input type="text" name="name" onChange={searchForItemsHandler} />
-          </div>
-        )}
-        {showCart && <Cart />}
-        {!showCart && (
-          <div className="container container-meals">
-            {filteredProducts.map((item) => {
-              return <SingleProduct key={item.id} {...item} />;
-            })}
-          </div>
-        )}
-        {!showCart && (
-          <button className="btn btn-go-to-cart" onClick={showCartHandler}>
-            Go to your cart
-          </button>
-        )}
-      </section>
-    </div>
+    <main className="section section-meals">
+      <Nav />
+      {!showCart && <SearchProducts />}
+      {showCart && <Cart />}
+      {!showCart && <ParentSingleProduct />}
+      {!showCart && <GoToCart />}
+      <TotalPrice />
+    </main>
   );
 }
 

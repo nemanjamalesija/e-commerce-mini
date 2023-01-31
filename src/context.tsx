@@ -13,6 +13,7 @@ const initialState: contexStateAndMethods = {
   amount: 0,
   showCart: false,
   totalItems: 0,
+  totalPrice: 0,
   addToCartHandler({
     id,
     price,
@@ -70,6 +71,7 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     dispatch({ type: 'UPDATE_PRODUCTS_NUMBER' });
+    dispatch({ type: 'UPDATE_TOTAL_PRICE' });
   }, [state.cart]);
 
   return (

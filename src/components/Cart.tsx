@@ -1,18 +1,28 @@
 import React from 'react';
 import { useGlobalContext } from '../context';
+import BackToProducts from './BackToProducts';
 import SingleCartItem from './SingleCartItem';
 
 const Cart = () => {
-  const { cart, hideCartHandler } = useGlobalContext();
+  const { cart } = useGlobalContext();
+
+  if (cart.length === 0)
+    return (
+      <section>
+        <h1 className="heading-empty-cart">Your cart is empty...</h1>;
+        <BackToProducts />
+      </section>
+    );
+
   return (
-    <div className="cart-div-one">
-      {cart.map((item) => {
-        return <SingleCartItem key={item.id} {...item} />;
-      })}
-      <button className="btn btn-go-to-cart" onClick={hideCartHandler}>
-        Back to Products
-      </button>
-    </div>
+    <section className="cart-div-one">
+      <div className="cart-container">
+        {cart.map((item) => {
+          return <SingleCartItem key={item.id} {...item} />;
+        })}
+      </div>
+      <BackToProducts />
+    </section>
   );
 };
 

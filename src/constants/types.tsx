@@ -19,6 +19,7 @@ export type stateType = {
   amount: number;
   showCart: boolean;
   totalItems: number;
+  totalPrice: number;
 };
 
 export type contexStateAndMethods = stateType & {
@@ -41,6 +42,7 @@ export type ACTIONS = {
     | 'ADD_PRODUCT_TO_CART'
     | 'FIND_PRODUCT_SEARCH'
     | 'UPDATE_PRODUCTS_NUMBER'
+    | 'UPDATE_TOTAL_PRICE'
     | 'ADD_ONE_PRODUCT'
     | 'REMOVE_ONE_PRODUCT'
     | 'SEARCH_FOR_PRODUCT'

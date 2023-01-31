@@ -19,14 +19,40 @@ const SingleCartItem = (props: product) => {
             className="btn btn-minus"
             onClick={() => removeOneProductHandler(id)}
           >
-            -
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="icon-cart-item"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19.5 12h-15"
+              />
+            </svg>
           </button>
           <p className="amount">{amount}</p>
           <button
             className="btn btn-plus"
             onClick={() => addOneProductHandler(id)}
           >
-            +
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="icon-cart-item"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 4.5v15m7.5-7.5h-15"
+              />
+            </svg>
           </button>
         </div>
       </div>
